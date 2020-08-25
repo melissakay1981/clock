@@ -5,7 +5,8 @@ import Clock from "./components/clock/clock";
 import Contact from './components/contact/Contact';
 import { Route, Switch } from "react-router-dom";
 import Navigation from "./components/navigation/Navigation";
-import Error from "./components/404/error.js"
+import Error from "./components/404/error.js";
+import Jeopardy from "./components/jeopardy/Jeopardy"
 function App() {
 
   return (
@@ -19,13 +20,16 @@ function App() {
         />
         <Route path="/clock" component={Clock} />
         <Route path="/contact" component={Contact} />
-        <Route component={Error} />
+        
         <Route
           path="/" 
           exact
           render={ (props)=> <Welcome {...props} name={props.match.params.name}/> 
-         }
+        }
+        
           />
+          <Route path = "/jeopardy" component = {Jeopardy} />
+          <Route component={Error} />
         </Switch>
       </div>
     );
